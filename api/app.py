@@ -23,6 +23,19 @@ async def showAllDatas():
     except Exception as e:
         print(f"kesalahan function API showAllDatas: e")
 
+#route API yang digunakan untuk memprediksi data
+@app.get("/prediksi")
+async def prediksiData(params: dict):
+    try:
+        hasil = car.prediksi(**params)
+        data = {
+            "message": "success",
+            "prediksi": hasil
+        }
+        return data
+    except Exception as e:
+        print(f"kesalahan pada API prediksiData: {e}")
+
 
 if __name__ == "__main__":
     uvicorn.run("app:app", port=8005, reload=True)
