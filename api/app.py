@@ -36,6 +36,6 @@ async def prediksiData(params: dict):
     except Exception as e:
         print(f"kesalahan pada API prediksiData: {e}")
 
-
+# apabila file di run
 if __name__ == "__main__":
     uvicorn.run("app:app", port=8005, reload=True)

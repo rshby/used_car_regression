@@ -1,16 +1,20 @@
 import pandas as pd
 import pickle
 
+# import model prediksi
 model = pickle.load(open(r"C:\Users\ROG\Documents\used_car_regression\model\model_regresi_rf.pkl", 'rb'))
+
+# semua data dalam bentuk feather
 data = pd.read_feather(r"C:\Users\ROG\Documents\used_car_regression\dataset\carUsedPriceFix.feather").to_dict(orient="records")
 
-
+# function yang digunakan untuk melihat semua data
 def showData():
     try:
         return data
     except Exception as e:
         print(f"kesalahan function showData: {e}")
 
+# function yang digunakan untuk memprediksi berdasarkan data
 def prediksi(**params):
     try:
         data = [[
